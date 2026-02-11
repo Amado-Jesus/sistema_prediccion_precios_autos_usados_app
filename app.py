@@ -34,8 +34,7 @@ if uploaded_file is not None:
     try:
         df = pd.read_csv(uploaded_file)
 
-        st.subheader("Vista previa del dataset")
-        st.dataframe(df.head())
+       
 
         required_columns = [
             'year', 'manufacturer', 'condition', 'cylinders', 'fuel',
@@ -49,6 +48,9 @@ if uploaded_file is not None:
             st.table(required_columns)
         else:
             st.success("✅ Columnas validadas correctamente.")
+
+            st.subheader("Vista previa del dataset")
+            st.dataframe(df.head())
 
             # Predicciones
             predictions = model.predict(df)
