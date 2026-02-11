@@ -12,23 +12,7 @@ import joblib
 st.set_page_config(page_title="Car Price Predictor", layout="wide")
 
 st.title("🚗 Predicción de Precio de Autos Usados")
-st.markdown(
-    """
-    Sube un archivo CSV con las siguientes variables:
 
-    - year
-    - manufacturer
-    - condition
-    - cylinders
-    - fuel
-    - odometer
-    - title_status
-    - transmission
-    - drive
-    - type
-    - paint_color
-    """
-)
 
 # -------------------------
 # Cargar modelo
@@ -61,7 +45,9 @@ if uploaded_file is not None:
 
         # Validar columnas
         if not all(col in df.columns for col in required_columns):
-            st.error("❌ El archivo no contiene las columnas necesarias.")
+            st.error("❌ El archivo no contiene las columnas necesarias: 'year', 'manufacturer', 'condition', 'cylinders', 'fuel',
+            'odometer', 'title_status', 'transmission',
+            'drive', 'type', 'paint_color'")
         else:
             st.success("✅ Columnas validadas correctamente.")
 
