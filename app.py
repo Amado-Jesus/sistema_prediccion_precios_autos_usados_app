@@ -46,6 +46,7 @@ if uploaded_file is not None:
         # Validar columnas
         if not all(col in df.columns for col in required_columns):
             st.error("El archivo no contiene las columnas necesarias")
+            st.table(required_columns)
         else:
             st.success("✅ Columnas validadas correctamente.")
 
